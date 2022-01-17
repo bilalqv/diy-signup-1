@@ -1,14 +1,31 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Home from '../views/Home.vue'
+import Compp1 from '../views/Compp1.vue'
+import Compp2 from '../views/Compp2.vue'
+import Compp3 from '../views/Compp3.vue'
+
 
 Vue.use(VueRouter)
 
 const routes = [
   {
     path: '/',
-    name: 'Home',
-    component: Home
+    redirect: '/c1',
+  },
+  {
+    path: '/c1',
+    name: 'Compp1',
+    component: Compp1
+  },
+  {
+    path: '/c2',
+    name: 'Compp2',
+    component: Compp2
+  },
+  {
+    path: '/c3',
+    name: 'Compp3',
+    component: Compp3
   },
   {
     path: '/about',

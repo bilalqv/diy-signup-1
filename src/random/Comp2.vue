@@ -5,7 +5,7 @@
       color="white"
       dark
       depressed
-      elevation="0"
+      elevation="1"
     >
       <div class="d-flex align-center">
         <v-img
@@ -37,19 +37,24 @@
               <p class="pa-12 font-weight-black" >Employee success platform that converts <br> feedback into actionable insights.</p>
               <v-img  src="./assets/logo.png" width="250px" class="pa-6 ml-12" alt=""></v-img>
           </v-card>
-          <v-card width="50%" class="pl-16"  color="#f0f0f0">
-              <p class="text-right mr-14 mt-10" >Have an account with us? <a href="" class="text-decoration-none" >Sign In</a> </p>
-              <h2>Sign up with SuperBeings</h2>
-              <p class="text-lowercase mb-10" >a free personality for you and your team awaits</p>
+          <v-card width="50%" class="pl-16"  color="white">
+              <p class="text-right mr-14 mt-10" >Not a member? <a href="" class="text-decoration-none" >Sign Up Now</a> </p>
+              <h2 class="mb-10" >Sign Into Superbeings</h2>
               <div d-flex justify-space-between>
-                <v-btn depressed x-large class="pa-5 mr-2 white rounded-lg text-capitalize  "> 
+                <v-btn depressed x-large 
+                class="pa-5 mr-8 #e9eff7 rounded-lg text-capitalize  "
+                height="70px"
+                > 
                   <v-img
                   src="./assets/img1.png"
                   contain
                   width="30px"
                   height="30px"
                   ></v-img>Continue with Google</v-btn>
-                <v-btn depressed x-large class="pa-5 white rounded-lg text-capitalize font-size-small " >
+                <v-btn depressed x-large 
+                class="pa-5 #e9eff7 rounded-lg text-capitalize font-size-small " 
+                height="70px"
+                >
                   <v-img
                   src="./assets/img2.jpg"
                   contain
@@ -66,53 +71,51 @@
                 </div>
               
               <v-form>
-                <p class="font-weight-medium mt-10" >Use work email</p>
+                
                 <v-col 
                 cols="8"
                 left
                 >
+                  <p class="font-weight-medium mt-6" >*Company email address</p>
+                  <v-text-field
+                  label="abc@gmail.com"
+                  solo
+                  class="rounded-lg "
+                  elevation="0"
+                  flat
+                  background-color="#e9eff7"
+                  
+                  ></v-text-field>
+                  
+                </v-col>
+                  
+                  <v-col 
+                  cols="8"
+                  left
+                  >
+                  <p class="font-weight-medium" >*Password</p>
                   <v-text-field
                   label="abc@gmail.com"
                   solo
                   class="rounded-lg"
                   elevation="0"
                   flat
-                  
+                  background-color="#e9eff7"
                   ></v-text-field>
+                  <p class="red--text"   >Forgot Passwrord?</p>
                 </v-col>
                 
               </v-form>
-              <v-checkbox :v-model="false">
-                <template v-slot:label>
-                  <div>
-                    I agree to platform
-                      <template>
-                        <a
-                          href="#"
-                          @click.stop
-                          v-on="on"
-                          class="text-decoration-none"
-                        >
-                          terms & conditions
-                        </a>
-                        and
-                        <a
-                          href="#"
-                          @click.stop
-                          v-on="on"
-                          class="text-decoration-none"
-                        >
-                          Privacy Policy
-                        </a>
-                      </template>
-                  </div>
-                </template>
-              </v-checkbox>
-              <p class="red--text"   >Please agree to terms and conditions</p>
-              <v-btn class="primary ma-4 pa-5" >
-                Sign Up
-              </v-btn>
               
+              <v-btn class="primary ma-4 pa-5" >
+                Log In
+              </v-btn>
+              <br>
+              <br>
+              
+              <v-btn fab depressed large absolute right class="primary" >
+                <v-icon>mdi-message-text</v-icon>
+              </v-btn>
             </v-card>
         </v-card>
       </div>
@@ -123,6 +126,6 @@
 
 <script>
 export default {
-    name: 'Comp1'
+    name: 'Comp2'
 }
 </script>

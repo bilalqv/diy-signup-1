@@ -88,7 +88,7 @@
 <script>
 
 export default {
-  name: 'App',
+  name: 'Comp3',
 
   data: () => ({
     //
