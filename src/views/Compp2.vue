@@ -2,25 +2,23 @@
     <div>
         <v-card
         class="d-flex justify-start mb-6"
-          :color="$vuetify.theme.dark ? 'grey darken-3' : 'grey lighten-4'"
           flat
           tile
           height="90vh"
         >
         <Left />
-        <v-card width="50%" class="pl-16"  color="white">
-              <p class="text-right mr-14 mt-10" >Not a member? <a href="" class="text-decoration-none" >Sign Up Now</a> </p>
+        <v-card width="50%" class="px-16"  color="white">
+              <p class="text-right mr-8 mt-10" >Not a member? <a href="" class="text-decoration-none" >Sign Up Now</a> </p>
               <h2 class="mb-10" >Sign Into Superbeings</h2>
               <Buttons2 />
               <br>
-                <div d-flex flex-column align-center >
-                  <v-divider ></v-divider>
-                  
-                  <!-- <v-divider></v-divider> -->
-                </div>
+                <v-row>
+                  <v-col cols="5" ><v-divider ></v-divider></v-col>
+                  <v-col cols="1" class="mt-0 pt-0"  > or </v-col>
+                  <v-col cols="5" ><v-divider ></v-divider></v-col>
+                </v-row>
               
               <v-form>
-                
                 <v-col 
                 cols="8"
                 left
@@ -33,15 +31,16 @@
                   elevation="0"
                   flat
                   background-color="#e9eff7"
+                  v-model="email"
+                  :rules="[rules.email]"
                   
                   ></v-text-field>
-                  
                 </v-col>
                   
-                  <v-col 
-                  cols="8"
-                  left
-                  >
+                <v-col 
+                cols="8"
+                left
+                >
                   <p class="font-weight-medium" >*Password</p>
                   <v-text-field
                   label="abc@gmail.com"
@@ -51,15 +50,13 @@
                   flat
                   background-color="#e9eff7"
                   ></v-text-field>
-                  <p class="red--text"   >Forgot Passwrord?</p>
+                  <a class="red--text" >Forgot Passwrord?</a>
                 </v-col>
-                
               </v-form>
               
               <v-btn class="primary ma-4 pa-5" >
                 Log In
               </v-btn>
-              
               <v-btn fab depressed large absolute right class="primary" >
                 <v-icon>mdi-message-text</v-icon>
               </v-btn>
@@ -73,6 +70,17 @@ import Buttons2 from '../components/Buttons2.vue'
 import Left from '../components/Left.vue'
 export default {
     
-    components: {Left, Buttons2  }
+    components: {Left, Buttons2  },
+    data () {
+      return {
+        email: '',
+        rules: {
+          email: value => {
+            const pattern = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+            return pattern.test(value) || 'Invalid e-mail.'
+          },
+        },
+      }
+    },
 }
 </script>

@@ -2,26 +2,25 @@
       <div>
         <v-card
           class="d-flex justify-start mb-6"
-          :color="$vuetify.theme.dark ? 'grey darken-3' : 'grey lighten-4'"
           flat
           tile
           height="90vh"
         >
         <Left />
         
-        <v-card width="50%" class="pl-16"  color="#f0f0f0">
+        <v-card width="50%" class="px-16"  color="#f0f0f0">
               <p class="text-right mr-14 mt-10" >Have an account with us? <a href="" class="text-decoration-none" >Sign In</a> </p>
               <h2>Sign up with SuperBeings</h2>
               <p class="text-lowercase mb-10" >a free personality for you and your team awaits</p>
               
               <Buttons1 />
               <br>
-                <div d-flex flex-column align-center >
-                  <v-divider ></v-divider>
+              <v-row>
+                <v-col cols="5" ><v-divider ></v-divider></v-col>
+                <v-col cols="1" class="mt-0 pt-0"  > or </v-col>
+                <v-col cols="5" ><v-divider ></v-divider></v-col>
+              </v-row>
                   
-                  <!-- <v-divider></v-divider> -->
-                </div>
-              
               <v-form>
                 <p class="font-weight-medium mt-10" >Use work email</p>
                 <v-col 
@@ -34,6 +33,7 @@
                   class="rounded-lg"
                   elevation="0"
                   flat
+                  :rules="[rules.email]"
                   
                   ></v-text-field>
                 </v-col>
@@ -50,7 +50,7 @@
                           
                           class="text-decoration-none"
                         >
-                          terms & conditions
+                          Terms & Conditions
                         </a>
                         and
                         <a
@@ -92,6 +92,17 @@ import Left from '../components/Left.vue'
         AppBar,
         Left,
         Buttons1,
+    },
+    data () {
+      return {
+        email: '',
+        rules: {
+          email: value => {
+            const pattern = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+            return pattern.test(value) || 'Invalid e-mail.'
+          },
+        },
+      }
     },
   }
 </script>
